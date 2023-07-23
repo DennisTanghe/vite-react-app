@@ -1,7 +1,9 @@
-$topbarheight: 75px;
+$topbarheight: 50px;
+$topbarheight768: 75px;
 
 .app {
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .app-topbar {
@@ -15,14 +17,33 @@ $topbarheight: 75px;
     background-color: #000000;
     color: var(--primary-color);
     height: calc(100vh - $topbarheight);
-    padding: 10px;
-    width: 70px;
+    width: 0;
 
     &.open {
-        width: 300px;
+        width: 100%;
     }
 }
 
 .app-content {
     height: calc(100vh - $topbarheight);
+}
+
+@media screen and (min-width: 768px) {
+    .app-topbar {
+        height: $topbarheight768;
+    }
+
+    .app-sidebar {
+        height: calc(100vh - $topbarheight768);
+        padding: 10px;
+        width: $topbarheight768;
+
+        &.open {
+            width: 300px;
+        }
+    }
+
+    .app-content {
+        height: calc(100vh - $topbarheight768);
+    }
 }
